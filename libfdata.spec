@@ -1,32 +1,35 @@
+# see m4/${libname}.m4 />= for required version of particular library
+%define		libcdata_ver	20160108
+%define		libcerror_ver	20120425
+%define		libcnotify_ver	20120425
+%define		libcthreads_ver	20160404
+%define		libfcache_ver	20181010
 Summary:	Library to provide generic file data functions
 Summary(pl.UTF-8):	Biblioteka udostępniająca ogólne funkcje obsługi danych w plikach
 Name:		libfdata
-Version:	20150104
-Release:	2
+Version:	20181124
+Release:	1
 License:	LGPL v3+
 Group:		Libraries
-Source0:	https://github.com/libyal/libfdata/archive/%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	3d308065c27c965c6ebd07073402d466
-Patch0:		%{name}-system-libs.patch
+#Source0Download: https://github.com/libyal/libfdata/releases
+Source0:	https://github.com/libyal/libfdata/releases/download/%{version}/%{name}-alpha-%{version}.tar.gz
+# Source0-md5:	305446c43ae40479c2820849a71b7921
 URL:		https://github.com/libyal/libfdata/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1.6
 BuildRequires:	gettext-tools >= 0.18.1
-BuildRequires:	libcdata-devel >= 20130407
-BuildRequires:	libcerror-devel >= 20120425
-BuildRequires:	libcnotify-devel >= 20120425
-BuildRequires:	libcstring-devel >= 20120425
-BuildRequires:	libcthreads-devel >= 20130509
-BuildRequires:	libfcache-devel >= 20140912
+BuildRequires:	libcdata-devel >= %{libcdata_ver}
+BuildRequires:	libcerror-devel >= %{libcerror_ver}
+BuildRequires:	libcnotify-devel >= %{libcnotify_ver}
+BuildRequires:	libcthreads-devel >= %{libcthreads_ver}
+BuildRequires:	libfcache-devel >= %{libfcache_ver}
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
-BuildRequires:	sed >= 4.0
-Requires:	libcdata >= 20130407
-Requires:	libcerror >= 20120425
-Requires:	libcnotify >= 20120425
-Requires:	libcstring >= 20120425
-Requires:	libcthreads >= 20130509
-Requires:	libfcache >= 20140912
+Requires:	libcdata >= %{libcdata_ver}
+Requires:	libcerror >= %{libcerror_ver}
+Requires:	libcnotify >= %{libcnotify_ver}
+Requires:	libcthreads >= %{libcthreads_ver}
+Requires:	libfcache >= %{libfcache_ver}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -41,12 +44,11 @@ Summary:	Header files for libfdata library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libfdata
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	libcdata-devel >= 20130407
-Requires:	libcerror-devel >= 20120425
-Requires:	libcnotify-devel >= 20120425
-Requires:	libcstring-devel >= 20120425
-Requires:	libcthreads-devel >= 20130509
-Requires:	libfcache-devel >= 20140912
+Requires:	libcdata-devel >= %{libcdata_ver}
+Requires:	libcerror-devel >= %{libcerror_ver}
+Requires:	libcnotify-devel >= %{libcnotify_ver}
+Requires:	libcthreads-devel >= %{libcthreads_ver}
+Requires:	libfcache-devel >= %{libfcache_ver}
 
 %description devel
 Header files for libfdata library.
@@ -68,11 +70,9 @@ Statyczna biblioteka libfdata.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %{__gettextize}
-%{__sed} -i -e 's/ po\/Makefile.in//' configure.ac
 %{__libtoolize}
 %{__aclocal} -I m4
 %{__autoconf}
