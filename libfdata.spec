@@ -1,29 +1,29 @@
 # see m4/${libname}.m4 />= for required version of particular library
-%define		libcdata_ver	20160108
+%define		libcdata_ver	20230108
 %define		libcerror_ver	20120425
 %define		libcnotify_ver	20120425
 %define		libcthreads_ver	20160404
-%define		libfcache_ver	20181010
+%define		libfcache_ver	20191109
 Summary:	Library to provide generic file data functions
 Summary(pl.UTF-8):	Biblioteka udostępniająca ogólne funkcje obsługi danych w plikach
 Name:		libfdata
-Version:	20181124
+Version:	20230319
 Release:	1
 License:	LGPL v3+
 Group:		Libraries
 #Source0Download: https://github.com/libyal/libfdata/releases
 Source0:	https://github.com/libyal/libfdata/releases/download/%{version}/%{name}-alpha-%{version}.tar.gz
-# Source0-md5:	305446c43ae40479c2820849a71b7921
+# Source0-md5:	b796c47a1fdf84b7178b04861497b7ad
 URL:		https://github.com/libyal/libfdata/
-BuildRequires:	autoconf >= 2.59
+BuildRequires:	autoconf >= 2.71
 BuildRequires:	automake >= 1.6
-BuildRequires:	gettext-tools >= 0.18.1
+BuildRequires:	gettext-tools >= 0.21
 BuildRequires:	libcdata-devel >= %{libcdata_ver}
 BuildRequires:	libcerror-devel >= %{libcerror_ver}
 BuildRequires:	libcnotify-devel >= %{libcnotify_ver}
 BuildRequires:	libcthreads-devel >= %{libcthreads_ver}
 BuildRequires:	libfcache-devel >= %{libfcache_ver}
-BuildRequires:	libtool
+BuildRequires:	libtool >= 2:2
 BuildRequires:	pkgconfig
 Requires:	libcdata >= %{libcdata_ver}
 Requires:	libcerror >= %{libcerror_ver}
