@@ -7,13 +7,13 @@
 Summary:	Library to provide generic file data functions
 Summary(pl.UTF-8):	Biblioteka udostępniająca ogólne funkcje obsługi danych w plikach
 Name:		libfdata
-Version:	20240415
+Version:	20260521
 Release:	1
 License:	LGPL v3+
 Group:		Libraries
 #Source0Download: https://github.com/libyal/libfdata/releases
 Source0:	https://github.com/libyal/libfdata/releases/download/%{version}/%{name}-alpha-%{version}.tar.gz
-# Source0-md5:	fc6e1b5713166f89d82eed57d653a884
+# Source0-md5:	ef88aca6e8675f34052057c42efd327c
 URL:		https://github.com/libyal/libfdata/
 BuildRequires:	autoconf >= 2.71
 BuildRequires:	automake >= 1.6
@@ -99,12 +99,12 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog README
-%attr(755,root,root) %{_libdir}/libfdata.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libfdata.so.1
+%{_libdir}/libfdata.so.*.*.*
+%ghost %{_libdir}/libfdata.so.1
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libfdata.so
+%{_libdir}/libfdata.so
 %{_includedir}/libfdata
 %{_includedir}/libfdata.h
 %{_pkgconfigdir}/libfdata.pc
